@@ -3,9 +3,12 @@
 package br.pro.hashi.ensino.desagil.aps.view;
 
 import br.pro.hashi.ensino.desagil.aps.model.Gate;
+import br.pro.hashi.ensino.desagil.aps.model.Light;
 import br.pro.hashi.ensino.desagil.aps.model.Switch;
 
 import javax.swing.*;
+import javax.swing.text.BoxView;
+import javax.swing.text.html.StyleSheet;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
@@ -29,9 +32,12 @@ public class GateView extends FixedPanel implements ItemListener {
         this.gate = gate;
 
         int inputSize = gate.getInputSize();
+        int outputSize = gate.getOutputSize();
 
         switches = new Switch[inputSize];
         inputBoxes = new JCheckBox[inputSize];
+
+
 
         for (int i = 0; i < inputSize; i++) {
             switches[i] = new Switch();
@@ -39,6 +45,8 @@ public class GateView extends FixedPanel implements ItemListener {
 
             gate.connect(i, switches[i]);
         }
+
+
 
         int x, y, step;
 
